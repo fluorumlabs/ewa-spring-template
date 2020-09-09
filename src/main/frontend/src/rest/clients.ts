@@ -1,6 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.25.695 on 2020-09-09 16:29:32.
 
 export interface HttpClient {
 

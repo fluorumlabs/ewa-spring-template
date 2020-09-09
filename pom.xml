@@ -121,6 +121,7 @@
                     <mapEnum>asEnum</mapEnum>
                     <mapDate>asString</mapDate>
                     <nonConstEnums>true</nonConstEnums>
+                    <noFileComment>true</noFileComment>
                     <loggingLevel>Info</loggingLevel>
                     <stringQuotes>singleQuotes</stringQuotes>
                     <classesExtendingClasses>com.example.demo.Api
