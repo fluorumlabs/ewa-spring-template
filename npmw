@@ -1,3 +1,8 @@
 #!/usr/bin/env sh
+
 cd src/main/frontend
-pnpm "$@"
+if which pnpm >/dev/null; then
+  pnpm "$@"
+else
+  npm "$@"
+fi

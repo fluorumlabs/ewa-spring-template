@@ -1,3 +1,3 @@
 @echo off
 cd src\main\frontend
-pnpm %*
+where pnpm.cmd >nul 2>&1 && pnpm %* || npm %*
