@@ -66,7 +66,7 @@ public class DevModeHelper implements InitializingBean {
             if (System.getProperty("os.name").toLowerCase().contains("windows")) {
                 commandLine = "cmd /c npmw.cmd run start";
             } else {
-                commandLine = "./npmw.sh run start";
+                commandLine = "./npmw run start";
             }
             mutex.acquire();
 
