@@ -1,0 +1,71 @@
+{
+  "scripts": {
+    "lint:eslint": "eslint --ext .ts,.html . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .ts,.html . --fix --ignore-path .gitignore",
+    "lint:prettier": "prettier \"**/*.js\" \"**/*.ts\" --check --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.js\" \"**/*.ts\" --write --ignore-path .gitignore",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "build": "rimraf dist && tsc && rollup -c rollup.config.js",
+    "clean": "rimraf dist",
+    "start:build": "npm run build && es-dev-server --root-dir dist --app-index index.html --open --compatibility none",
+    "start": "concurrently --raw --kill-others --names wait,tsc,es-dev-server \"wait-on -r tcp:8999\" \"npm run tsc:watch\" \"es-dev-server --app-index index.html --node-resolve --open --watch\"",
+    "tsc:watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@open-wc/building-rollup": "^1.0.0",
+    "@open-wc/eslint-config": "^2.0.0",
+    "@types/node": "13.11.1",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "concurrently": "^5.1.0",
+    "es-dev-server": "^1.5.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^1.0.0",
+    "koa": "^2.0.0",
+    "koa-proxies": "^0.11.0",
+    "lint-staged": "^10.0.0",
+    "prettier": "^2.0.4",
+    "rimraf": "^2.6.3",
+    "rollup": "^2.3.4",
+    "tslib": "^1.11.0",
+    "typescript": "~3.9.0",
+    "wait-on": "^5.2.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "name": "ewa-template",
+  "version": "0.0.0",
+  "description": "Webcomponent ewa-template following open-wc recommendations",
+  "author": "ewa-template",
+  "license": "MIT",
+  "dependencies": {
+    "@vaadin/vaadin-button": "^2.4.0",
+    "@vaadin/vaadin-notification": "^1.6.0",
+    "@vaadin/vaadin-ordered-layout": "^1.4.0",
+    "@vaadin/vaadin-text-field": "^2.8.0",
+    "lit-element": "^2.0.1",
+    "lit-html": "^1.0.0"
+  }
+}
