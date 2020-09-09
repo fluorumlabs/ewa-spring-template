@@ -17,7 +17,7 @@
     <description>Easy Web Application template</description>
 
     <properties>
-        <java.version>14</java.version>
+        <java.version>8</java.version>
         <spring.profile.active>development</spring.profile.active>
         <frontend.build.script>clean</frontend.build.script>
     </properties>
